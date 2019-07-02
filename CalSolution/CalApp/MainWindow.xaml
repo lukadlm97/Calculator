@@ -22,21 +22,21 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="5" Grid.ColumnSpan="3" Margin="10px"  Background="Aqua">0</Button>
-        <Button Grid.Row="5" Grid.Column="3"  Margin="10px" Background="Azure">=</Button>
-        <Button Grid.Row="5" Grid.Column="4"  Margin="45px 10px 45px 10px">+</Button>
-        <Button Grid.Row="4" Grid.Column="3" Margin="10px" Background="Aqua">3</Button>
-        <Button Grid.Row="4" Grid.Column="4" Margin="45px 10px 45px 10px">-</Button>
-        <Button Grid.Row="4" Grid.Column="2" Margin="10px" Background="Aqua">2</Button>
-        <Button Grid.Row="4" Grid.Column="1" Margin="10px" Background="Aqua">1</Button>
-        <Button Grid.Row="3" Grid.Column="3" Margin="10px" Background="Aqua">6</Button>
-        <Button Grid.Row="3" Grid.Column="4"  Margin="45px 10px 45px 10px">*</Button>
-        <Button Grid.Row="3" Grid.Column="1" Margin="10px" Background="Aqua">4</Button>
-        <Button Grid.Row="3" Grid.Column="2" Margin="10px" Background="Aqua">5</Button>
-        <Button Grid.Row="2" Grid.Column="3" Margin="10px" Background="Aqua">9</Button>
-        <Button Grid.Row="2" Grid.Column="4" Margin="45px 10px 45px 10px">/</Button>
-        <Button Grid.Row="2" Grid.Column="1" Margin="10px" Background="Aqua">7</Button>
-        <Button Grid.Row="2" Grid.Column="2" Margin="10px" Background="Aqua">8</Button>
-        <TextBox Grid.RowSpan="2" Grid.ColumnSpan="5" Foreground="Azure" FontSize="50" Background="Bisque"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="3" Margin="10px"  Background="Aqua" Name="ZeroButton" Click="ZeroButton_Click">0</Button>
+        <Button Grid.Row="5" Grid.Column="3"  Margin="10px" Background="Azure" Name="Equals" Click="Equals_Click">=</Button>
+        <Button Grid.Row="5" Grid.Column="4"  Margin="45px 10px 45px 10px" Name="Plus" Click="Plus_Click">+</Button>
+        <Button Grid.Row="4" Grid.Column="3" Margin="10px" Background="Aqua" Name="Three" Click="Three_Click">3</Button>
+        <Button Grid.Row="4" Grid.Column="4" Margin="45px 10px 45px 10px" Name="Minus" Click="Minus_Click">-</Button>
+        <Button Grid.Row="4" Grid.Column="2" Margin="10px" Background="Aqua" Name="Two" Click="Two_Click">2</Button>
+        <Button Grid.Row="4" Grid.Column="1" Margin="10px" Background="Aqua" Name="One" Click="One_Click">1</Button>
+        <Button Grid.Row="3" Grid.Column="3" Margin="10px" Background="Aqua" Name="Six" Click="Six_Click">6</Button>
+        <Button Grid.Row="3" Grid.Column="4"  Margin="45px 10px 45px 10px" Name="Multiply" Click="Multiply_Click">*</Button>
+        <Button Grid.Row="3" Grid.Column="1" Margin="10px" Background="Aqua" Name="Four" Click="Four_Click">4</Button>
+        <Button Grid.Row="3" Grid.Column="2" Margin="10px" Background="Aqua" Name="Five" Click="Five_Click">5</Button>
+        <Button Grid.Row="2" Grid.Column="3" Margin="10px" Background="Aqua" Name="Nine" Click="Nine_Click">9</Button>
+        <Button Grid.Row="2" Grid.Column="4" Margin="45px 10px 45px 10px" Name="Divided" Click="Divided_Click">/</Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="10px" Background="Aqua" Name="SevenButton" Click="SevenButton_Click">7</Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="10px" Background="Aqua" Name="EightButton" Click="EightButton_Click">8</Button>
+        <TextBox Grid.RowSpan="2" Grid.ColumnSpan="5" Foreground="Azure" FontSize="50" Background="Bisque" Name="TextBoxResult"/>
     </Grid>
 </Window>
