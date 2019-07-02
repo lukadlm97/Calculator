@@ -27,6 +27,9 @@ namespace CalApp
         decimal firstNumberDec;
         string secoundNumber = "";
         decimal secoundNumberDec;
+        decimal globalVariable = 0;
+        bool setedFirstSimbol = false;
+        bool setedMoreTime = false;
         
         public MainWindow()
         {
@@ -227,19 +230,76 @@ namespace CalApp
             return TextBoxResult == null || TextBoxResult.Text == "0";
         }
 
+        private bool IsSpecialChar(char c)
+        {
+            return c == '+' || c == '-' || c == '/' || c == '*';
+        }
+
         private void Plus_Click(object sender, RoutedEventArgs e)
         {
             if (operation == null)
             {
                 firstNumberDec = Convert.ToDecimal(TextBoxResult.Text);
                 operation = "+";
+                setedFirstSimbol = true;
                 TextBoxResult.Text += operation;
             }
             else
             {
-
+                if(IsSpecialChar(TextBoxResult.Text[index: TextBoxResult.Text.Length-1]))
+                {
+                    TextBoxResult.Text = null;
+                    ClearVariable(0);
+                    return;
+                }
+                if (operation.Equals("+"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "+";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x + y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "+";
+                    return;
+                }
+                if (operation.Equals("-"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "+";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x - y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "+";
+                    return;
+                }
+                if (operation.Equals("*"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "+";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x * y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "+";
+                    return;
+                }
+                if (operation.Equals("/"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "+";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x / y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "+";
+                    return;
+                }
             }
         }
+
+
 
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
@@ -251,7 +311,56 @@ namespace CalApp
             }
             else
             {
-
+                if (IsSpecialChar(TextBoxResult.Text[index: TextBoxResult.Text.Length - 1]))
+                {
+                    TextBoxResult.Text = null;
+                    ClearVariable(0);
+                    return;
+                }
+                if (operation.Equals("+"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "-";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x + y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "-";
+                    return;
+                }
+                if (operation.Equals("-"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "-";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x - y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "-";
+                    return;
+                }
+                if (operation.Equals("*"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "-";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x * y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "-";
+                    return;
+                }
+                if (operation.Equals("/"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "-";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x / y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "-";
+                    return;
+                }
             }
         }
 
@@ -265,7 +374,56 @@ namespace CalApp
             }
             else
             {
-
+                if (IsSpecialChar(TextBoxResult.Text[index: TextBoxResult.Text.Length - 1]))
+                {
+                    TextBoxResult.Text = null;
+                    ClearVariable(0);
+                    return;
+                }
+                if (operation.Equals("+"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "*";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x + y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "*";
+                    return;
+                }
+                if (operation.Equals("-"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "*";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x - y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "*";
+                    return;
+                }
+                if (operation.Equals("*"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "*";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x * y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "*";
+                    return;
+                }
+                if (operation.Equals("/"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "*";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x / y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "*";
+                    return;
+                }
             }
         }
 
@@ -279,7 +437,56 @@ namespace CalApp
             }
             else
             {
-
+                if (IsSpecialChar(TextBoxResult.Text[index: TextBoxResult.Text.Length - 1]))
+                {
+                    TextBoxResult.Text = null;
+                    ClearVariable(0);
+                    return;
+                }
+                if (operation.Equals("+"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "/";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x + y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "/";
+                    return;
+                }
+                if (operation.Equals("-"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "/";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x - y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "/";
+                    return;
+                }
+                if (operation.Equals("*"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "/";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x * y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "/";
+                    return;
+                }
+                if (operation.Equals("/"))
+                {
+                    setedMoreTime = true;
+                    TextBoxResult.Text += "/";
+                    secoundNumberDec = Convert.ToDecimal(secoundNumber);
+                    secoundNumber = "";
+                    Operation addDel = (x, y) => x / y;
+                    firstNumberDec = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                    operation = "/";
+                    return;
+                }
             }
         }
 
@@ -291,7 +498,9 @@ namespace CalApp
             {
                 Operation addDel = (x, y) => x + y;
                 result = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                History.Text = TextBoxResult.Text;
                 TextBoxResult.Text = Convert.ToString(result);
+                globalVariable = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
                 ClearVariable(result);
                 return;
             }
@@ -299,7 +508,9 @@ namespace CalApp
             {
                 Operation addDel = (x, y) => x - y;
                 result = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                History.Text = TextBoxResult.Text;
                 TextBoxResult.Text = Convert.ToString(result);
+                globalVariable = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
                 ClearVariable(result);
                 return;
             }
@@ -307,7 +518,9 @@ namespace CalApp
             {
                 Operation addDel = (x, y) => x * y;
                 result = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                History.Text = TextBoxResult.Text;
                 TextBoxResult.Text = Convert.ToString(result);
+                globalVariable = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
                 ClearVariable(result);
                 return;
             }
@@ -315,7 +528,9 @@ namespace CalApp
             {
                 Operation addDel = (x, y) => x / y;
                 result = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
+                History.Text = TextBoxResult.Text;
                 TextBoxResult.Text = Convert.ToString(result);
+                globalVariable = ProcessData.Process(firstNumberDec, secoundNumberDec, addDel);
                 ClearVariable(result);
                 return;
             }
@@ -328,5 +543,14 @@ namespace CalApp
             secoundNumber = null;
             operation = null;
         }
+
+        private void Restart_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxResult.Text = null;
+            ClearVariable(0);
+            
+        }
+
+        
     }
 }
